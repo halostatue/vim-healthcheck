@@ -1,6 +1,9 @@
-if exists('g:loaded_healthcheck') || has('nvim')
-    finish
-endif
-let g:loaded_healthcheck = 1
+vim9script
 
-command -nargs=* -bar CheckHealth call health#check([<f-args>])
+if g:->get('loaded_healthcheck', false)
+  finish
+endif
+
+g:loaded_healthcheck = true
+
+command -nargs=* -bar CheckHealth health#check([<f-args>])

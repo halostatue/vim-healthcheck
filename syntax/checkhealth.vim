@@ -1,8 +1,10 @@
-" Vim syntax file
-" Language:     Neovim checkhealth buffer
-" Last Change:  2021 Dec 15
+vim9script
 
-if has('nvim') || exists("b:current_syntax")
+# Vim syntax file for a neovim-alike checkhealth buffer
+# Language:     Neovim checkhealth buffer
+# Last Change:  2021 Dec 15
+
+if exists('b:current_syntax')
   finish
 endif
 
@@ -11,7 +13,7 @@ unlet! b:current_syntax
 
 syn case match
 
-" We do not care about markdown syntax errors
+# We do not care about markdown syntax errors
 if hlexists('markdownError')
   syn clear markdownError
 endif
@@ -27,4 +29,4 @@ hi def link healthWarning WarningMsg
 hi def healthSuccess guibg=#5fff00 guifg=#080808 ctermbg=82 ctermfg=232
 hi def link healthHelp Identifier
 
-let b:current_syntax = "checkhealth"
+b:current_syntax = "checkhealth"
